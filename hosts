@@ -1,0 +1,87 @@
+# This is the default ansible 'hosts' file.
+#
+# It should live in /etc/ansible/hosts
+#
+#   - Comments begin with the '#' character
+#   - Blank lines are ignored
+#   - Groups of hosts are delimited by [header] elements
+#   - You can enter hostnames or ip addresses
+#   - A hostname/ip can be a member of multiple groups
+
+# Ex 1: Ungrouped hosts, specify before any group headers.
+
+## green.example.com
+## blue.example.com
+## 192.168.100.1
+## 192.168.100.10
+
+# Ex 2: A collection of hosts belonging to the 'webservers' group
+
+## [webservers]
+## alpha.example.org
+## beta.example.org
+## 192.168.1.100
+## 192.168.1.110
+
+# If you have multiple hosts following a pattern you can specify
+# them like this:
+
+## www[001:006].example.com
+
+# Ex 3: A collection of database servers in the 'dbservers' group
+
+## [dbservers]
+## 
+## db01.intranet.mydomain.net
+## db02.intranet.mydomain.net
+## 10.25.1.56
+## 10.25.1.57
+
+# Here's another example of host ranges, this time there are no
+# leading 0s:
+
+## db-[99:101]-node.example.com
+
+[all:vars]
+ansible_connection=ssh
+ansible_user=root
+ansible_ssh_pass=pw4root
+ansible_python_interpreter=/usr/bin/python3
+
+[dev_hyperv]
+172.16.15.20 #webmin
+172.16.15.233 #wy-hhagd01
+172.16.15.232 #wy-hhswd02
+172.16.15.190 #wb-as-d01
+172.16.15.191 #wb-as-d02
+172.16.15.231 #wy-hhwsd01
+172.16.15.145 #wb-jenkins-p01
+172.16.15.121 #wb-ms-d01
+
+[dev_vmware]
+172.16.11.125 #Wy-hhdbd01
+172.16.11.121 #wy-hhagd01
+
+[prod_vmware]
+192.168.10.50 #wb-hil-agp01
+172.16.98.147 #wb-ft-p01
+172.16.98.54 #PWBSPTS01
+172.16.98.222 #wb-af-p01
+172.16.98.222 #wb-af-p01
+172.16.98.216 #wb-ctsftp-p01
+172.16.98.147 #wb-ft-p01
+192.168.10.50 #wb-hil-agp01
+192.168.10.51 #wb-hil-ags01
+172.16.98.115 #wy-hhagp11
+172.16.98.119 #wy-hhdbp11
+172.16.98.116 #wy-hhwsp11
+172.16.98.117 #wy-hhwsp12
+
+[stage_vmware]
+192.168.10.51 #wb-hil-ags01
+172.16.98.112 #wy-hhags11
+172.16.98.127 #wy-hhags12
+172.16.98.108 #wy-hhccweblb01
+172.16.98.118 #wy-hhdbs11
+172.16.98.113 #wy-hhwss11
+172.16.98.114 #wy-hhwss12
